@@ -1,1 +1,1 @@
-web: node ./vin/www
+web: node ./bin/www
