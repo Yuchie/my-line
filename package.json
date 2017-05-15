@@ -1,35 +1,21 @@
 {
   "name": "my-line",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "cookie-parser": "^1.4.3",
-    "debug": "^2.6.6",
-    "express": "^4.15.2",
-    "express-generator": "^4.15.0",
-    "jade": "^1.11.0",
-    "morgan": "^1.8.1",
-    "serve-favicon": "^2.4.2"
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
   },
-  "engines":{
+  "engine": {
     "node": "v6.10.2",
     "npm": "3.10.10"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Yuchie/my-line.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Yuchie/my-line/issues"
-  },
-  "homepage": "https://github.com/Yuchie/my-line#readme"
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  }
 }
