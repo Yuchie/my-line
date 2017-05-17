@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  	<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf8"> -->
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+	<head>
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf8"> -->
+		<meta charset="utf8"/>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#btn').click(function(){
+					window.location.href = '/talk';
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p>Welcome to <%= title %></p>
+		<div>
+			<button id="btn" class="ui-btn">Talk</button>
+		</div>
+	</body>
 </html>
