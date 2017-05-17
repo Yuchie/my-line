@@ -11,17 +11,17 @@ var talk = require('./routes/talk');
 
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+// var io = require('socket.io')(http);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-io.on('connection', function(socket){
-	socket.on('msg', function(data){
-		io.sockets.emit('msg', data);
-	});
-});
+// io.on('connection', function(socket){
+// 	socket.on('msg', function(data){
+// 		io.sockets.emit('msg', data);
+// 	});
+// });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -34,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/talk', talk);
+
+var port = process.env.PORT || 5000;
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,5 +54,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+http.listen(port, function(){
+	console.log("App is running on port " + port);
+})
 
 module.exports = app;
