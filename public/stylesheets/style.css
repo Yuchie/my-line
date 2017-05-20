@@ -2,9 +2,12 @@
 h1 {
 	color: #5fd035;
 }
+#title {
+	color: #5fd035;
+}
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Calibri", Helvetica, Arial, sans-serif;
 }
 
 a {
