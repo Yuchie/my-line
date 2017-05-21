@@ -37,12 +37,13 @@ var server = http.listen(port, function(){
 
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', function(socket){
+io.on('connection', function(socket){
+	console.log('a user connected');
 	//connect
-	socket.emit('message', function(message){
+	socket.on('msg', function(message){
 		//message
-		console.log('message:' +msg);
-		io.emit('message', 'You said "' + msg + '".');
+		console.log('message:' + message);
+		io.emit('msg', message);
 	})
 	socket.on('disconnect', function(){
 		//disconnect

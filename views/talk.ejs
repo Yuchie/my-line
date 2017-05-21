@@ -2,47 +2,33 @@
 <html>
 	<head>
 		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf8"> -->
+		<script src="/socket.io/socket.io.js"></script>
 		<meta charset="utf8"/>
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<sctipt src="/socket.io/socket.io.js"></sctipt>
-		<script src="/javascripts/client.js"></script>
-		<!-- <script type="text/javascript">
+		
+		<!-- <script src="/javascripts/client.js"></script> -->
+		<script type="text/javascript">
 			$(document).ready(function(){//HTMLの読み込みが終わったら
-				var msg = '';
-				$('#btn').click(function(){
-					// 空欄だったらsubmitしない
-					if ($('#form1 [name=txt]').val()=="") { // ('#id [name = name]').val()
-						return false;
-					}
-					msg+=$('#form1 [name=txt]').val();
-					console.log(msg);
-					// socket.emit('msg', $('#form1 [name=txt]').val());
-					$("#msg").text(msg);
-					//空にする
-					$('#form1 [name=txt]').val('');
+				var socket = io();
+				$('form').submit(function(){
+					socket.emit('msg', $('#m').val());
+					$('#m').val('');
+					return false;
+				});
+				socket.on('msg', function(message) {
+					$('#messages').append($('<li>').text(message));
 				});
 			});
-			// socket.on('msg', function(data){
-			// 	$('div').prepend(data+'<br>');
-			// });
-		</script> -->
+		</script>
 	</head>
 	<body>
 		<h1><%= title %></h1>
 		<p>Welcome to <%= title %></p>
-<!-- 		<div id="msg"></div>
-		<form method="post" name="form1" id="form1" action="">
-			<input type="text" name="txt" value="" />
-			<button type="button" name="btn" id="btn">submit</button>
-		</form> -->
-		 <form action="">
-      		<input id="m" type="text"/>
-      		<br />
-      		<button type="submit">SUBMIT</button>
+		<ul id="messages"></ul>
+    	<form action="">
+      		<input id="m" autocomplete="off" /><button>Send</button>
     	</form>
-    	<hr />
-    	<ul id="messages"></ul>
 	</body>
 </html>
