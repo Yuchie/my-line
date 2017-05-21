@@ -12,8 +12,9 @@
 		<script type="text/javascript">
 			$(document).ready(function(){//HTMLの読み込みが終わったら
 				var socket = io();
+				var user = $('#login-form [name=user]').val();
 				$('form').submit(function(){
-					socket.emit('msg', $('#m').val());
+					socket.emit('msg', ': ' + $('#m').val());
 					$('#m').val('');
 					return false;
 				});

@@ -8,18 +8,13 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<sctipt src="/socket.io/socket.io.js"></sctipt>
 		<script type="text/javascript">
-			$(function(){
-				$('#btn').click(function(){
-					window.location.href = '/talk';
-				});
-			});
 		</script>
 	</head>
 	<body>
 		<h1><%= title %></h1>
 		<p>Welcome to <%= title %></p>
-		<div>
-			<button id="btn" class="ui-btn">Talk</button>
-		</div>
+		<form action="/talk" method="post" >
+  			<input type="text" name="user" value="" autocomplete="off" /><button>login</button>
+		</form>
 	</body>
 </html>
